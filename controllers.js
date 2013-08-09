@@ -15,10 +15,9 @@ function parkingControler($scope,$http) {
     a["0"] = "Hors service";
     a["1"] = "FERME";
     a["2"] = "ABONNES UNIQUEMENT";
-
     a["5"] = "OUVERT";
     $scope.status = a;
-    $http.get('php/getDisponibiliteParkingsPublics.php').success(function (data) {
+    $http.get('./php/getDisponibiliteParkingsPublics.php').success(function (data) {
         $scope.parkings = data.opendata.answer.data.Groupes_Parking.Groupe_Parking;
         console.log(JSON.stringify(data.opendata.answer.data.Groupes_Parking.Groupe_Parking));
     });
